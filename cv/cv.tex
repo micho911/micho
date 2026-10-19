@@ -1,0 +1,189 @@
+%-------------------------
+% CV - Michel Yildirim
+% Same content as micho.tech/cv (src/lib/content.ts). Compile and save the PDF as
+% static/michel-yildirim-cv.pdf, which is what the download button on /cv links to.
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titlespacing*{\section}{0pt}{14pt}{9pt}
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{\item\small #1}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=0pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0.5pt, topsep=2pt, parsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-8pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Michel Yildirim} \\ \vspace{-1pt}
+    \small Software engineer $\cdot$ CS MSc student in AI, Aarhus University \\ \vspace{-1pt}
+    \small \href{mailto:michelyldrm@gmail.com}{\underline{michelyldrm@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/michelyildirim/}{\underline{linkedin.com/in/michelyildirim}} $|$
+    \href{https://github.com/micho911}{\underline{github.com/micho911}} $|$
+    \href{https://micho.tech}{\underline{micho.tech}}
+\end{center}
+
+\vspace{-10pt}
+{\small Software engineer at Morch Solutions, working on a mix of client projects across different codebases and stacks. I also work on AI projects and the occasional competition, mostly reinforcement learning, NLP and LLM agents.}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Morch Solutions}{Aarhus, Denmark}
+      {Junior Software Engineer}{Jun 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{Work across a portfolio of clients, from small businesses to enterprise, often switching between codebases, stacks and domains within the same day.}
+        \resumeItem{Field-service platform for cable and broadband providers: technician booking and scheduling, job tracking, equipment orders and Wi-Fi labels.}
+        \resumeItem{The full IT system for a rehearsal-space business: bookings for bands, musicians and teachers, check-in, door codes, room maintenance and their expansion into podcast studios.}
+        \resumeItem{Smaller end-to-end web apps, and well-scoped technical tasks such as API integrations for enterprise clients.}
+        \resumeItem{Agentic development as the default way of working: coding agents do much of the implementation, and my time goes into scoping, review and verification.}
+        \resumeItem{CI/CD, deployment and DevOps: automated build, test and release pipelines in GitLab, and Docker.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CLAN, Aarhus University}{Aarhus, Denmark}
+      {Research Assistant}{2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{No Hands: research on programming by voice, for developers with motor impairments.}
+        \resumeItem{Set up and ran a user study on how well current AI tools support voice programming.}
+        \resumeItem{Building a prototype VS Code extension that turns speech into code edits and editor commands using LLM tool use.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Aarhus University}{Aarhus, Denmark}
+      {Teaching Assistant}{Aug 2023 -- Dec 2025}
+      \resumeItemListStart
+        \resumeItem{Taught 25+ students per semester in object-oriented programming in Java.}
+        \resumeItem{Wrote an automated runner that tests student submissions against test suites to support grading.}
+        \resumeItem{Taught introductory object-oriented modelling (UML) and JavaScript in a digital fundamentals course.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Research, Projects \& Competitions}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Danish Championship in AI} -- solo entry}{2025}
+          \resumeItemListStart
+            \resumeItem{Tumour segmentation in medical images (computer vision).}
+            \resumeItem{Reinforcement learning for a simulated car driving on sensor input.}
+            \resumeItem{A retrieval-augmented LLM pipeline for healthcare questions, tuned for accuracy and speed.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Nitor Energy Quantitative Trading Case Competition}}{2025}
+          \resumeItemListStart
+            \resumeItem{Forecasting models on two years of hourly European power-grid data. Placed 12th of 45 teams.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Wikinsert} -- bachelor project}{Summer 2024}
+          \resumeItemListStart
+            \resumeItem{An entity-aware insertion tool for Wikipedia editors, built with CLAN at Aarhus University.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Incommodities Case Crunch}}{2024}
+          \resumeItemListStart
+            \resumeItem{A LightGBM pipeline forecasting wind-energy yield from spatio-temporal weather data.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{AUHack}}{2024}
+          \resumeItemListStart
+            \resumeItem{Simulated CPU/GPU scheduling with dynamic priority queues. Honorary mention among 30+ teams.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Aarhus University}{Aarhus, Denmark}
+      {MSc Computer Science, specialising in AI}{Aug 2025 -- Jul 2027}
+    \resumeSubheading
+      {National University of Singapore}{Singapore}
+      {Exchange semester, School of Computing}{Aug 2026 -- Dec 2026}
+      \resumeItemListStart
+        \resumeItem{Reinforcement learning and sequential decision making; smart systems and AI governance.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Aarhus University}{Aarhus, Denmark}
+      {BSc Computer Science}{Sep 2022 -- Jul 2025}
+      \resumeItemListStart
+        \resumeItem{Machine learning, linear algebra, compilers, distributed systems, programming languages.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Nyborg Gymnasium}{Nyborg, Denmark}
+      {International Baccalaureate}{Aug 2019 -- Jul 2022}
+  \resumeSubHeadingListEnd
+
+%-----------SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Engineering}{: Web apps and back offices, APIs, CI/CD, Docker, Git, automated testing, code review} \\
+     \textbf{AI \& ML}{: Agentic and AI-first systems, LLM tool use and MCP, fine-tuning, NLP, RAG, reinforcement learning, time-series forecasting, data pipelines, computer vision} \\
+     \textbf{Programming}{: Python, TypeScript, JavaScript, Java, Kotlin, PHP, C/C++, OCaml} \\
+     \textbf{Frameworks}{: PyTorch, TensorFlow, scikit-learn, LightGBM, pandas, Polars, SvelteKit, React, HTMX, Tailwind CSS, Maven, Gradle} \\
+     \textbf{Languages}{: English, Danish and Turkish, all native}
+    }}
+ \end{itemize}
+
+\end{document}

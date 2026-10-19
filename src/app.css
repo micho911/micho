@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+/*
+ * Day and night palettes, blended by --dark (0 = day, 1 = night). SunLight.svelte drives --dark from
+ * the sun's elevation, so the page dims gradually through dusk instead of flipping.
+ */
+:root {
+	--dark: 0;
+	--bg: color-mix(in oklab, #f4efe6, #0d111c calc(var(--dark) * 100%));
+	--surface: color-mix(in oklab, #fbf8f2, #141a29 calc(var(--dark) * 100%));
+	--ink: color-mix(in oklab, #1d1b18, #ebe7de calc(var(--dark) * 100%));
+	--muted: color-mix(in oklab, #6b655c, #98a0b3 calc(var(--dark) * 100%));
+	--line: color-mix(in oklab, #e2dacd, #242c3f calc(var(--dark) * 100%));
+	--accent: color-mix(in oklab, #c2410c, #f2b55c calc(var(--dark) * 100%));
+	--shadow: 60 40 20;
+
+	/* The page's single light source. SunLight.svelte overwrites these live. */
+	--sx: -0.6;
+	--sy: 0.8;
+	--len: 1.4;
+	--tint: transparent;
+	color-scheme: light;
+}
+
+[data-light='night'] {
+	color-scheme: dark;
+}
+
+@theme inline {
+	--color-bg: var(--bg);
+	--color-surface: var(--surface);
+	--color-ink: var(--ink);
+	--color-muted: var(--muted);
+	--color-line: var(--line);
+	--color-accent: var(--accent);
+}
+
+@theme {
+	--font-serif: 'Fraunces', Georgia, serif;
+	--font-sans: 'Inter Tight', system-ui, sans-serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Shadows cast by the same sun as the big wordmark. */
+@utility shadow-sun {
+	box-shadow: calc(var(--sx) * var(--len) * 10px) calc(var(--sy) * var(--len) * 10px) 24px -6px
+		rgb(var(--shadow) / 0.16);
+}
+@utility shadow-sun-sm {
+	box-shadow: calc(var(--sx) * var(--len) * 4px) calc(var(--sy) * var(--len) * 4px) 10px -4px
+		rgb(var(--shadow) / 0.18);
+}
+@utility text-shadow-sun {
+	text-shadow: calc(var(--sx) * var(--len) * 3px) calc(var(--sy) * var(--len) * 3px) 0
+		rgb(var(--shadow) / 0.12);
+}
+@utility sky-tint {
+	background: var(--tint);
+}
+@utility lamp-glow {
+	background: radial-gradient(
+		420px circle at var(--lx, 70%) var(--ly, 20%),
+		rgb(242 181 92 / 0.13),
+		transparent 70%
+	);
+}
+
+/* Stars in the hero sky: --on (0..1) is how dark it is; each one twinkles on its own beat. */
+.star {
+	opacity: calc(var(--on) * 0.75);
+	animation: twinkle 4s ease-in-out infinite;
+}
+@keyframes twinkle {
+	50% {
+		opacity: calc(var(--on) * 0.2);
+	}
+}
+
+@layer base {
+	body {
+		@apply bg-bg font-sans text-[17px] leading-relaxed text-ink antialiased;
+	}
+	:focus-visible {
+		@apply rounded outline-2 outline-offset-2 outline-accent;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			transition: none !important;
+			animation: none !important;
+		}
+	}
+}
+
+@media print {
+	:root {
+		--bg: #fff;
+		--surface: #fff;
+		--ink: #000;
+		--muted: #333;
+		--line: #ccc;
+		--accent: #000;
+	}
+}
